@@ -30,3 +30,22 @@ A Django-based REST API for a medical platform where patients can register, book
    ```bash
    git clone https://github.com/your-username/eHealth.git
    cd eHealth
+
+python -m venv django-venv
+source django-venv/bin/activate  # On Windows: django-venv\Scripts\activate
+
+
+pip install django djangorestframework drf-yasg django-filter
+pip freeze > requirements.txt
+
+
+python manage.py makemigrations
+python manage.py migrate
+
+
+python manage.py createsuperuser
+
+
+python manage.py runserver
+
+
