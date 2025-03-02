@@ -1,0 +1,439 @@
+swagger: '2.0'
+info:
+  title: eHealth API
+  version: v1
+host: 127.0.0.1:8000
+schemes:
+- http
+basePath: /api
+consumes:
+- application/json
+produces:
+- application/json
+securityDefinitions:
+  Token:
+    type: apiKey
+    name: Authorization
+    in: header
+    description: 'Enter your token in the format: Token <your-token-here>'
+security:
+- Token: []
+paths:
+  /appointments/:
+    get:
+      operationId: appointments_list
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Appointment'
+      tags:
+      - appointments
+    post:
+      operationId: appointments_create
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/Appointment'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/Appointment'
+      tags:
+      - appointments
+    parameters: []
+  /appointments/{id}/:
+    get:
+      operationId: appointments_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Appointment'
+      tags:
+      - appointments
+    put:
+      operationId: appointments_update
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/Appointment'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Appointment'
+      tags:
+      - appointments
+    patch:
+      operationId: appointments_partial_update
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/Appointment'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Appointment'
+      tags:
+      - appointments
+    delete:
+      operationId: appointments_delete
+      description: ''
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      tags:
+      - appointments
+    parameters:
+    - name: id
+      in: path
+      description: A unique integer value identifying this appointment.
+      required: true
+      type: integer
+  /login/:
+    post:
+      operationId: login_create
+      description: ''
+      parameters: []
+      responses:
+        '201':
+          description: ''
+      tags:
+      - login
+    parameters: []
+  /patients/:
+    get:
+      operationId: patients_list
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Patient'
+      tags:
+      - patients
+    post:
+      operationId: patients_create
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/Patient'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/Patient'
+      tags:
+      - patients
+    parameters: []
+  /patients/{user}/:
+    get:
+      operationId: patients_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Patient'
+      tags:
+      - patients
+    put:
+      operationId: patients_update
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/Patient'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Patient'
+      tags:
+      - patients
+    patch:
+      operationId: patients_partial_update
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/Patient'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Patient'
+      tags:
+      - patients
+    delete:
+      operationId: patients_delete
+      description: ''
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      tags:
+      - patients
+    parameters:
+    - name: user
+      in: path
+      description: A unique value identifying this patient.
+      required: true
+      type: string
+  /practitioners/:
+    get:
+      operationId: practitioners_list
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/MedicalPractitioner'
+      tags:
+      - practitioners
+    post:
+      operationId: practitioners_create
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/MedicalPractitioner'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/MedicalPractitioner'
+      tags:
+      - practitioners
+    parameters: []
+  /practitioners/{user}/:
+    get:
+      operationId: practitioners_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/MedicalPractitioner'
+      tags:
+      - practitioners
+    put:
+      operationId: practitioners_update
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/MedicalPractitioner'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/MedicalPractitioner'
+      tags:
+      - practitioners
+    patch:
+      operationId: practitioners_partial_update
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/MedicalPractitioner'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/MedicalPractitioner'
+      tags:
+      - practitioners
+    delete:
+      operationId: practitioners_delete
+      description: ''
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      tags:
+      - practitioners
+    parameters:
+    - name: user
+      in: path
+      description: A unique value identifying this medical practitioner.
+      required: true
+      type: string
+  /register/patient/:
+    post:
+      operationId: register_patient_create
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/Patient'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/Patient'
+      tags:
+      - register
+    parameters: []
+  /register/practitioner/:
+    post:
+      operationId: register_practitioner_create
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/MedicalPractitioner'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/MedicalPractitioner'
+      tags:
+      - register
+    parameters: []
+definitions:
+  Appointment:
+    required:
+    - practitioner
+    - date
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      patient:
+        title: Patient
+        type: string
+        readOnly: true
+      practitioner:
+        title: Practitioner
+        type: string
+      date:
+        title: Date
+        type: string
+        format: date-time
+      status:
+        title: Status
+        type: string
+        enum:
+        - pending
+        - accepted
+        - rejected
+        - cancelled
+  UserRegistration:
+    required:
+    - email
+    - phone_number
+    - password
+    type: object
+    properties:
+      email:
+        title: Email
+        type: string
+        format: email
+        maxLength: 254
+        minLength: 1
+      phone_number:
+        title: Phone number
+        type: string
+        maxLength: 15
+        minLength: 1
+      password:
+        title: Password
+        type: string
+        minLength: 1
+      is_patient:
+        title: Is patient
+        type: boolean
+      is_practitioner:
+        title: Is practitioner
+        type: boolean
+  Patient:
+    required:
+    - user
+    - name
+    - date_of_birth
+    type: object
+    properties:
+      user:
+        $ref: '#/definitions/UserRegistration'
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      date_of_birth:
+        title: Date of birth
+        type: string
+        format: date
+  MedicalPractitioner:
+    required:
+    - user
+    - name
+    - specialization
+    - location
+    type: object
+    properties:
+      user:
+        $ref: '#/definitions/UserRegistration'
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      specialization:
+        title: Specialization
+        type: string
+        maxLength: 100
+        minLength: 1
+      location:
+        title: Location
+        type: string
+        maxLength: 200
+        minLength: 1
