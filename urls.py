@@ -18,5 +18,6 @@ urlpatterns = [
     path('api/', include('health_management.urls')),
     path('api/swagger.json', schema_view.without_ui(cache_timeout=0), name='schema-json'),
     path('api/swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
+    #path('api/rate-practitioner/', PractitionerRatingView.as_view(), name='rate_practitioner'),
     path('accounts/', include('django.contrib.auth.urls')),
 ]
