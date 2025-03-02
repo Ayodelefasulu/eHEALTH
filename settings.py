@@ -50,12 +50,34 @@ INSTALLED_APPS = [
 REST_FRAMEWORK = {
     'TRAILING_SLASH': False,
 
+    """'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        #'rest_framework.permissions.IsAuthenticated',
+        'rest_framework.permissions.AllowAny',
+    ],
+    """
+
     'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.TokenAuthentication',
     ],
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',
     ],
+}
+
+SWAGGER_SETTINGS = {
+    'SECURITY_DEFINITIONS': {
+        'Token': {
+            'type': 'apiKey',
+            'name': 'Authorization',
+            'in': 'header',
+            'description': 'Enter your token in the format: Token <your-token-here>'
+        }
+    },
+    'SECURITY': [{'Token': []}],
 }
 
 MIDDLEWARE = [
@@ -73,7 +95,7 @@ ROOT_URLCONF = "eHealth.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": ['templates'],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
