@@ -31,23 +31,23 @@ A Django-based REST API for a medical platform where patients can register, book
    git clone https://github.com/your-username/eHealth.git
    cd eHealth
 
-###Setup your virtual environment
+### Setup your virtual environment
 python -m venv django-venv
 source django-venv/bin/activate  # On Windows: django-venv\Scripts\activate
 
-###Install django and it's dependencies
+### Install django and it's dependencies
 pip install django djangorestframework drf-yasg django-filter
 pip freeze > requirements.txt
 
-###Database migrations
+### Database migrations
 python manage.py makemigrations
 python manage.py migrate
 
-###create admin panel
+### create admin panel
 python manage.py createsuperuser
 
 
-###Run local development server
+### Run local development server
 python manage.py runserver
 
 Api will be available at:
@@ -56,4 +56,4 @@ http://127.0.0.1:8000/api/
 Access Swagger Documentation:
 Open http://127.0.0.1:8000/api/swagger/ in your browser.
 
-###HAPPY CODING!!!###
+### HAPPY CODING!!!
